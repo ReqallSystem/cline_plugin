@@ -1,0 +1,57 @@
+{
+  "name": "@reqall/cline-plugin",
+  "version": "2026.10.4",
+  "description": "Reqall plugin for Cline — persistent semantic memory via SDK plugin, file hooks, skills, and MCP",
+  "type": "module",
+  "main": "./plugin.js",
+  "bin": {
+    "reqall-cline-plugin": "bin/reqall-cline-plugin.mjs"
+  },
+  "cline": {
+    "plugins": [
+      {
+        "paths": ["./plugin.js"],
+        "capabilities": ["hooks", "rules", "mcp"]
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs && node bin/reqall-cline-plugin.mjs --json && npm pack --dry-run"
+  },
+  "peerDependencies": {
+    "@cline/sdk": "*"
+  },
+  "peerDependenciesMeta": {
+    "@cline/sdk": {
+      "optional": true
+    }
+  },
+  "files": [
+    "plugin.js",
+    "bin",
+    "hooks",
+    "lib",
+    "skills",
+    "REQALL.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "reqall",
+    "cline",
+    "cline-plugin",
+    "mcp",
+    "memory",
+    "agent-skills",
+    "project-context"
+  ],
+  "homepage": "https://github.com/ReqallSystem/cline_plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReqallSystem/cline_plugin.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
