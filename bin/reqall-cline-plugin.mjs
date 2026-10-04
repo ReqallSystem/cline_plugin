@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Installer for the Reqall Cline file hooks, skills and rule (VS Code / JetBrains).
- * The Cline CLI loads the SDK plugin instead: `cline plugin install npm:@reqall/cline-plugin`.
+ * The Cline CLI loads the SDK plugin instead: `cline plugin install git:github.com/ReqallSystem/cline_plugin`.
  *
  *   reqall-cline-plugin install   [--scope global|workspace] [--cwd DIR] [--force] [--no-hooks] [--no-skills] [--no-rule]
  *   reqall-cline-plugin uninstall [--scope global|workspace] [--cwd DIR]

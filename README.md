@@ -25,15 +25,15 @@ Set a Reqall API key first (create one at [reqall.net](https://www.reqall.net)):
 export REQALL_API_KEY="rq_..."
 ```
 
+The plugin installs from GitHub; it is not published to npm.
+
 ### Cline CLI
 
 ```bash
-cline plugin install npm:@reqall/cline-plugin
-# or from GitHub
-cline plugin install https://github.com/ReqallSystem/cline_plugin.git
+cline plugin install git:github.com/ReqallSystem/cline_plugin
 ```
 
-The plugin registers the `reqall` MCP server with a bearer header built from
+Re-run with `--force` to update. The plugin registers the `reqall` MCP server with a bearer header built from
 `REQALL_API_KEY` in the CLI's environment (it registers nothing when the key is
 missing), the Reqall rule, lifecycle hooks, and the bundled skills. Check it
 with `cline config` (Plugins tab).
@@ -44,9 +44,9 @@ The extension does not run SDK plugins yet, so install the file hooks, skills
 and rule, and add the MCP server:
 
 ```bash
-npx @reqall/cline-plugin install            # global: ~/Documents/Cline/Hooks, ~/.cline/skills, ~/.cline/rules
-npx @reqall/cline-plugin install --workspace # this repo: .clinerules/hooks, .cline/skills, .clinerules/reqall.md
-npx @reqall/cline-plugin mcp-config          # prints the MCP entry
+npx github:ReqallSystem/cline_plugin install             # global: ~/Documents/Cline/Hooks, ~/.cline/skills, ~/.cline/rules
+npx github:ReqallSystem/cline_plugin install --workspace # this repo: .clinerules/hooks, .cline/skills, .clinerules/reqall.md
+npx github:ReqallSystem/cline_plugin mcp-config          # prints the MCP entry
 ```
 
 Merge the printed entry into `~/.cline/data/settings/cline_mcp_settings.json`
@@ -72,7 +72,7 @@ afterwards. The installer copies the hook runtime to `~/.cline/reqall-runtime`,
 writes one small wrapper per event (`TaskStart`, `UserPromptSubmit`,
 `PreToolUse`, `PostToolUse`, `TaskComplete`; `.ps1` on Windows), and never
 overwrites hooks, skills or rules it did not write unless you pass `--force`.
-`npx @reqall/cline-plugin uninstall [--workspace]` removes only its own files.
+`npx github:ReqallSystem/cline_plugin uninstall [--workspace]` removes only its own files.
 
 The CLI also reads `~/Documents/Cline/Hooks` and `.clinerules/hooks`. There the
 file hooks stand down, because the plugin covers the same events and CLI prompt
